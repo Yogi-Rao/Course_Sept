@@ -1,0 +1,182 @@
+# Git and GitHub
+
+local
+git init (We add the guard to maintain the record)
+	begin tracking >>  .git
+
+Server
+git clone url  (already .git present)
+
+
+Set your details
+	git config --global user.name "YJB"
+	git config --global user.email "123@gmail.com"
+	
+	git config -l /--list
+	
+	
+
+	
+git status 
+	Status of project
+		Branch name
+		modification 
+		untracked files (red)
+			
+#cycle
+
+
+
+work-->unstage-->Staging area -->checkpoint
+
+touch .gitignore // add file name so git ignore it while in check status
+
+git add
+	not automatically tracked
+	git add filename
+	git add .     (for all untracked file)
+	
+	
+git commit (Permanantaly in history)
+	after tracked
+		make check point (green)
+	
+	git commit -m "What changes msg"
+	
+	git commit -a -m "direct go checkpoint" //all at a time 
+	
+
+git diff
+
+
+git log
+	all commits changes
+
+Create branch
+	git branch new_branch_name
+
+Switch to make changes	
+	git checkout new_branch_name
+	git checkout -b new_branch_name_direct create and switch
+
+git branch
+	show all branches
+
+git checkout master    (default branch name)
+
+Revert
+	git revert 
+
+
+	
+=======================
+
+GitHub
+	
+
+
+==========================================================
+
+Example: Start a new repository and publish it to GitHub
+
+
+
+
+
+A README is a text file that introduces and explains a project. It contains information that is commonly required to understand what the project is about.
+
+
+
+local to remote 
+
+git add README.md
+
+git commit -m "first commit"
+
+git branch -M main
+
+git remote add origin https://github.com/YJB28/gitlecture2.git
+
+git branch -M main
+
+git push -u origin main
+
+===========================================================
+
+Example: Contribute to an existing repository
+
+
+
+
+# download a repository on GitHub to our machine
+# Replace `owner/repo` with the owner and name of the repository to clone
+
+git clone https://github.com/owner/repo.git
+
+git branch my-branch
+git checkout my-branch
+git add file1.md file2.md
+git commit -m "my snapshot"
+
+
+
+
+
+
+# change into the `repo` directory
+cd repo
+
+
+# create a new branch to store any new changes
+git branch my-branch
+
+
+
+
+# switch to that branch (line of development)
+git checkout my-branch
+
+# make changes, for example, edit `file1.md` and `file2.md` using the text editor
+
+# stage the changed files
+git add file1.md file2.md
+
+# take a snapshot of the staging area (anything that's been added)
+git commit -m "my snapshot"
+
+# push changes to github
+git push --set-upstream origin my-branch
+
+
+
+
+
+=========================================================
+
+Example: contribute to an existing branch on GitHub
+
+
+
+This example assumes that you already have a project called repo on the machine and that a new branch has been pushed to GitHub since the last time changes were made locally.
+
+# change into the `repo` directory
+cd repo
+
+# update all remote tracking branches, and the currently checked out branch
+git pull
+
+# change into the existing branch called `feature-a`
+git checkout feature-a
+
+# make changes, for example, edit `file1.md` using the text editor
+
+# stage the changed file
+git add file1.md
+
+# take a snapshot of the staging area
+git commit -m "edit file1"
+
+# push changes to github
+git remote add origin url
+
+git push -u REMOTE-NAME BRANCH-NAME
